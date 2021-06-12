@@ -1,5 +1,5 @@
 import socket
-
+import time
 HOST = '127.0.0.1'  # Standard loopback interface address (localhost)
 PORT = 5000        # Port to listen on (non-privileged ports are > 1023)
 print("hello")
@@ -18,4 +18,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s=str(data)
             s=s.upper()
             print(s)
-            conn.sendall(b'HELLOWORD')
+            time.sleep(30)
+            
+            conn.sendall(s.encode())
